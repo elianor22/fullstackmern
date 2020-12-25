@@ -7,19 +7,19 @@ import propTypes from 'prop-types'
 
 export default function Button(props) {
 
-    const className = [props.className]
-    if(props.isPrimary) className.push("btn-primary")
-    if(props.isLarge) className.push("btn-lg")
-    if(props.isSmall) className.push("btn-sm")
-    if(props.isBlock) className.push("btn-block")
-    if(props.hasShadows) className.push("btn-shadow")
+    const className = [props.className];
+    if(props.isPrimary) className.push("btn-primary");
+    if(props.isLarge) className.push("btn-lg");
+    if(props.isSmall) className.push("btn-sm");
+    if(props.isBlock) className.push("btn-block");
+    if(props.hasShadows) className.push("btn-shadow");
   
-    const onCLick= () => {
-        if(props.onCLick) props.onCLick()
+    const onClick= () => {
+        if(props.onClick) props.onClick();
     };
 
     if(props.isDisabled || props.isLoading){
-        if(props.isDisabled) className.push("disabled")
+        if(props.isDisabled) className.push("disabled");
     return(
         <span
         className={className.join(" ")} 
@@ -31,10 +31,10 @@ export default function Button(props) {
                     <span className="sr-only">Loading...</span>
                 </>) : (
                     props.children
-                )
-             }
+                )}
         </span>
-    );}
+        );
+    }
 
     if(props.type ==="link"){
         if(props.isExternal){
@@ -55,38 +55,38 @@ export default function Button(props) {
                 to={props.href} 
                 className={className.join(" ")} 
                 style={props.style}
-                onClick={onCLick}
+                onClick={onClick}
                 > 
                     {props.children}
                 </Link>
-            )
+            );
         }
     }
 
     return (
-        <Button 
+        <button 
         className={className.join(" ")} 
         style={props.style}
-        onClick={onCLick}
+        onClick={onClick}
         >
              {props.children}
-        </Button>
-    )
+        </button>
+    );
 }
 
 Button.propTypes = {
     type: propTypes.oneOf(["button", "link"]),
-    onCLick: propTypes.func,
+    onClick: propTypes.func,
     target: propTypes.string,
     className: propTypes.string,
     isDisabled: propTypes.bool,
     isExternal: propTypes.bool,
+    isPrimary: propTypes.bool,
     isLoading: propTypes.bool,
     hasShadows: propTypes.bool,
     isLarge: propTypes.bool,
     isSmall: propTypes.bool,
     isBlock: propTypes.bool,
    
-    
 
-}
+};
