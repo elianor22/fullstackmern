@@ -4,6 +4,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
+### `npm install`
+### `npm i node-sass@4.14.1`
+### `npm npm i npm install react-reveal --save`
+
 In the project directory, you can run:
 
 ### `npm start`
